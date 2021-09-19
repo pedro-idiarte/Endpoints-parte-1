@@ -7,7 +7,7 @@ const db = () => {
 
   return {
     findById: id => {
-      const user = database.find(user => user?.id === id)
+      const user = database.find(user => user?.id === parseInt(id))
       return user !== 0 ? user : { message: 'informacao nao encontrada' }
     },
     findAll: () => database,
