@@ -1,25 +1,36 @@
+type User = {
+  id: number,
+  name: string,
+  email: string,
+  password: string
+}
 
 const db = () => {
-  const database = []
+  const database: User[] = []
   const message = "nao foi possivel encontrar, informacao invalida!"
 
-  const getIndice = id => database.findIndex(user => user.id === parseInt(id))
+  const getIndice = (id: number) => database.findIndex(user => user.id === id)
 
   return {
-    findById: id => {
-      const user = database.find(user => user?.id === parseInt(id))
-      return user !== 0 ? user : { message: 'informacao nao encontrada' }
+    findById: (id: number) => {
+      const user = database.find(user => user.id == id)
+
+      if (!user) { message: 'informacao nao encontrada' }
+
+      return user
     },
     findAll: () => database,
-    create: user => {
+    create: (user: User) => {
       const newUser = {
         id: database.length + 1,
-        ...user
+        name: user.name,
+        email: user.email,
+        password: user.password
       }
       database.push(newUser)
       return newUser
     },
-    updateById: (id, user) => {
+    updateById: (id: number, user: User) => {
       const { name, email, password } = user
       const indice = getIndice(id)
       if (indice >= 0) {
@@ -35,7 +46,7 @@ const db = () => {
       }
       return { message }
     },
-    remove: id => {
+    remove: (id: number) => {
       const indice = getIndice(id)
       if (indice >= 0) {
         database.splice(indice, 1)

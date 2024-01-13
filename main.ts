@@ -1,6 +1,5 @@
-const express = require("express")
+import express from "express"
 const app = express()
-const db = require("./db")
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
