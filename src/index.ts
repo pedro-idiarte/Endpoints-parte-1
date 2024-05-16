@@ -1,4 +1,6 @@
 import express from "express";
+// import db from "./client/db";
+
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -15,6 +17,12 @@ app.use(express.urlencoded({ extended: true }));
         email: String, 
         password: String 
     }
+*/
+
+/*
+    app.get('/'. (req, res) => {
+        res.send('Hello World');
+    });
 */
 
 app.listen(port, () => {
