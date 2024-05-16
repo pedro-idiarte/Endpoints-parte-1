@@ -15,7 +15,7 @@ npm start
 
 # Documentação
 
-No arquivo `db.js` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porem devem entender o que eles nos fornece para que consigamos trabalhar.
+No arquivo `db.ts` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porem devem entender o que eles nos fornece para que consigamos trabalhar.
 
 são 5 operações que podemos utilizar apartir da importação desse arquivo e são elas:
 
@@ -28,7 +28,7 @@ são 5 operações que podemos utilizar apartir da importação desse arquivo e 
 
 ## como utilizar:
 
-Primeiro se certifique de estar importando o arquivo `db.js` no inicio do arquivo que você pretende trabalhar.
+Primeiro se certifique de estar importando o arquivo `db.ts` no inicio do arquivo que você pretende trabalhar.
 
 ```javascript
 const db = require('./db')
