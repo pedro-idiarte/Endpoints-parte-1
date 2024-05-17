@@ -15,7 +15,7 @@ npm start
 
 # Documentação
 
-No arquivo `db.ts` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porem devem entender o que eles nos fornece para que consigamos trabalhar.
+No arquivo `client/db.ts` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porem devem entender o que eles nos fornece para que consigamos trabalhar.
 
 são 5 operações que podemos utilizar apartir da importação desse arquivo e são elas:
 
@@ -25,25 +25,24 @@ são 5 operações que podemos utilizar apartir da importação desse arquivo e 
 - removeById - **remove uma ocorrencia de acordo com o id**
 - updateById - **atualiza uma ocorrencia de acordo com o id**
 
+## Como utilizar
 
-## como utilizar:
+Primeiro se certifique de estar importando o arquivo `client/db.ts` no inicio do arquivo que você pretende trabalhar.
 
-Primeiro se certifique de estar importando o arquivo `db.ts` no inicio do arquivo que você pretende trabalhar.
-
-```javascript
-const db = require('./db')
+```typescript
+import db from './client/db';
 ```
 
 Para receber todos os elementos existentes no banco você pode utilizar a função `findAll`
 
-```javascript
+```typescript
 const items = db.findAll()
 console.log(items)
 ```
 
 Para receber apenas um elemento de acordo com o seu `ID` você pode utilizar a função `findById`
 
-```javascript
+```typescript
 const id = 1
 const item = db.findById(id)
 console.log(item)
@@ -51,7 +50,7 @@ console.log(item)
 
 Para criar um novo elemento no banco você pode utilizar a função `create`
 
-```javascript
+```typescript
 const user = {
     name: "Joana",
     email: "j.ana@gmail.com",
@@ -63,7 +62,7 @@ console.log(createdItem)
 
 Para alterar um determinado elemento por `ID` você pode utilizar a função `updateById`
 
-```javascript
+```typescript
 const id = 1
 const user = {
     name: "Joana Maria",
@@ -76,7 +75,7 @@ console.log(updatedItem)
 
 Para remover apenas um elemento de acordo com o seu `ID` você pode utilizar a função `removeById`
 
-```javascript
+```typescript
 const id = 1
 const removedItem = db.removeById(id)
 console.log(removedItem)
