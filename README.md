@@ -52,6 +52,7 @@ Para criar um novo elemento no banco você pode utilizar a função `create`
 
 ```typescript
 const user = {
+    id: 1,
     name: "Joana",
     email: "j.ana@gmail.com",
     password: "abc.123#"
@@ -65,6 +66,7 @@ Para alterar um determinado elemento por `ID` você pode utilizar a função `up
 ```typescript
 const id = 1
 const user = {
+    id = id,
     name: "Joana Maria",
     email: "jmaria@gmail.com",
     password: "123#abc"
@@ -79,4 +81,16 @@ Para remover apenas um elemento de acordo com o seu `ID` você pode utilizar a f
 const id = 1
 const removedItem = db.removeById(id)
 console.log(removedItem)
+```
+
+### Observação
+
+Para cada funcão você precisa criar uma rota com nome ("/rota") e metodo de requisição http (get, delete, etc), exemplo:
+
+```typescript
+  app.get("/", (req, res) => {
+    const acharTodosUsuarios = todosUsuarios()
+
+    res.send(acharTodosUsuarios)
+  });
 ```
