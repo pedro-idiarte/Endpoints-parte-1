@@ -6,7 +6,19 @@ type User = {
 };
 
 const db = () => {
-  const database: User[] = [];
+  const database: User[] = [{
+    id: 1,
+    name: "Barbara",
+    email: "barbara@gmail.com",
+    password: "abc.123#"
+  },
+  {
+    id: 2,
+    name: "Joana",
+    email: "joana.ana@gmail.com",
+    password: "ab23#"
+  }];
+
   const message = "nao foi possivel encontrar, informacao invalida!";
 
   const getIndice = (id: number) =>
@@ -53,11 +65,11 @@ const db = () => {
       const indice = getIndice(id);
       if (indice >= 0) {
         database.splice(indice, 1);
-        return { message: "removido com sucesso! " };
+        return { message: "removido com sucesso!" };
       }
       return { message };
     },
   };
 };
 
-export default db() ;
+export default db();

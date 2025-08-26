@@ -1,38 +1,60 @@
-# rodando a aplicação
+# Endpoints - Parte 1
+## Introdução
 
-1 - Instalando as dependencias do projeto
+Neste exercício, você vai praticar a criação de rotas HTTP utilizando o Express para implementar um CRUD completo (Create, Read, Update, Delete) para o recurso "usuário".
+O projeto já vem com um “banco de dados” no arquivo client/db.ts, que fornece 5 funções prontas para manipulação de dados.
+Seu objetivo será criar 5 endpoints que utilizem essas funções para gerenciar usuários.
+
+## Objetivo
+Criar 5 endpoints para o recurso "usuário", utilizando as funções disponibilizadas em client/db.ts. O recurso usuário deve ter as seguintes propriedades:
+{ 
+    name: “fulano de tal”, 
+    email: “fulano@teste.com”, 
+    password: “123456” 
+}
+
+
+## Passos para rodar a aplicação
+
+1 - No terminal entre na pasta do projeto:
 
 ```bash
 cd ensinando-endpoints
+```
+
+2 - Instale as dependências
+
+```bash
 npm install
 ```
 
-2 - Iniciando a aplicação
+3 - Inicie a aplicação
 
 ```bash
 npm start
 ```
 
-# Documentação
+## Documentação
 
-No arquivo `client/db.ts` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porem devem entender o que eles nos fornece para que consigamos trabalhar.
+No arquivo `client/db.ts` temos uma simulação de **framework** que nos ajuda a enviar e receber informações para um banco de dados. **Vocês não precisam entender os detalhes da implementação desse arquivo**, porém devem entender o que eles nos fornece para que consigamos trabalhar.
 
-são 5 operações que podemos utilizar apartir da importação desse arquivo e são elas:
+São 5 operações que podemos utilizar a partir da importação deste arquivo e são elas:
 
-- findAll - **nos retorna todas as ocorrencias dentro de do banco**
-- findById - **nos retorna apenas uma ocorrencia no banco de acordo com o ID**
-- create - **cria uma nova ocorrencia no banco de dados**
-- removeById - **remove uma ocorrencia de acordo com o id**
-- updateById - **atualiza uma ocorrencia de acordo com o id**
+- findAll - **nos retorna todas as ocorrências dentro de do banco**
+- findById - **nos retorna apenas uma ocorrência no banco de acordo com o ID**
+- create - **cria uma nova ocorrência no banco de dados**
+- removeById - **remove uma ocorrência de acordo com o id**
+- updateById - **atualiza uma ocorrência de acordo com o id**
 
 ## Como utilizar
 
-Primeiro se certifique de estar importando o arquivo `client/db.ts` no inicio do arquivo que você pretende trabalhar.
+Importando o db:
+Primeiro certifique-se de estar importando o arquivo `client/db.ts` no início do arquivo que você pretende trabalhar.
 
 ```typescript
 import db from './client/db';
 ```
-
+Exemplos de uso:
 Para receber todos os elementos existentes no banco você pode utilizar a função `findAll`
 
 ```typescript
@@ -61,7 +83,7 @@ const createdItem = db.create(user)
 console.log(createdItem)
 ```
 
-Para alterar um determinado elemento por `ID` você pode utilizar a função `updateById`
+Para atualizar um determinado elemento por `ID` você pode utilizar a função `updateById`
 
 ```typescript
 const id = 1
@@ -75,7 +97,7 @@ const updatedItem = db.updatedById(id, user)
 console.log(updatedItem)
 ```
 
-Para remover apenas um elemento de acordo com o seu `ID` você pode utilizar a função `removeById`
+Para remover um elemento de acordo com o seu `ID` você pode utilizar a função `removeById`
 
 ```typescript
 const id = 1
@@ -83,9 +105,21 @@ const removedItem = db.removeById(id)
 console.log(removedItem)
 ```
 
-### Observação
+Criando as Rotas:
+Cada função deve ser associada a uma rota com:
+Caminho (ex: "/usuarios")
+Método HTTP (GET, POST, PUT, DELETE)
 
-Para cada funcão você precisa criar uma rota com nome ("/rota") e metodo de requisição http (get, delete, etc), exemplo:
+- Exemplo de rota inicial:
+
+
+```typescript
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+```
+
+- Outro exemplo de rota. Para cada função você precisa criar uma rota com nome ("/rota") e método de requisição http (get, delete, etc):
 
 ```typescript
   app.get("/", (req, res) => {
