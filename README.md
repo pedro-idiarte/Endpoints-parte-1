@@ -128,3 +128,12 @@ app.get("/", (req, res) => {
     res.send(acharTodosUsuarios)
   });
 ```
+
+# Como testar
+
+- Para verificar se suas implementações passaram, execute os testes pelo botão de Play (Code Runner) no VS Code.
+Abra um arquivo de exercício ou um arquivo de teste.
+
+- Clique no ícone ▶ no canto superior direito do editor.
+
+O script custom-test-results-processor.js exibirá no terminal uma mensagem de sucesso, caso passe no teste ou uma mensagem de erro, caso falhe.
